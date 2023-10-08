@@ -1,28 +1,34 @@
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
-import "./styles/Layout.scss";
+import { NavLink, Outlet } from "react-router-dom";
+import "./Layout.scss";
 
 const Layout: FC = () => {
   return (
     <>
       <nav className="navbar">
-        <a className="navbar__logo" href="/">
+        <NavLink className="navbar__logo" to="/">
           <img src="/restaurant.png" alt="LOGO" />
-        </a>
+        </NavLink>
         <ul className="navbar__items">
           <li className="navbar__item">
-            <a className="navbar__link" href="/">
+            <NavLink className="navbar__link" to="/">
               Home
-            </a>
+            </NavLink>
           </li>
           <li className="navbar__item">
-            <a className="navbar__link">Add</a>
+            <NavLink className="navbar__link" to="/add">
+              Add
+            </NavLink>
           </li>
           <li className="navbar__item">
-            <a className="navbar__link">Update</a>
+            <NavLink className="navbar__link" to="/update">
+              Update
+            </NavLink>
           </li>
           <li className="navbar__item">
-            <a className="navbar__link">Delete</a>
+            <NavLink className="navbar__link" to="/">
+              Delete
+            </NavLink>
           </li>
         </ul>
       </nav>
