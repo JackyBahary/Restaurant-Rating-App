@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 
 const Add: FC = () => {
@@ -6,16 +6,24 @@ const Add: FC = () => {
   let [restaurantName, setRestaurantName] = useState<string>("");
   let [rating, setRating] = useState<number>(1);
   let [cost, setCost] = useState<string>("$");
+  let [restaurantID, setRestaurantID] = useState<number>(0);
+  let [date, setDate] = useState<string>();
+
+  useEffect(() => {
+    setRestaurantID(Date.now);
+    setDate(formatDate());
+  });
 
   // Add new restaurant
   const handleSubmit = async () => {
-    console.log(rating);
     await fetch(`${baseUrl}/restaurants`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
+        id: restaurantID,
+        date: date,
         name: restaurantName,
         rating,
         cost,
@@ -23,10 +31,35 @@ const Add: FC = () => {
     })
       .then((resp) => resp.json())
       .catch((err) => console.log(err));
+    setRestaurantID(0);
     setRestaurantName("");
     setRating(1);
     setCost("$");
     window.location.reload();
+  };
+
+  // Format Date
+  const formatDate = (): string => {
+    let today: Date = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+    let hoursString: string = ("0" + hours).slice(-2);
+    let minutesString: string = ("0" + minutes).slice(-2);
+    let secondsString: string = ("0" + seconds).slice(-2);
+    let date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate() +
+      " " +
+      hoursString +
+      ":" +
+      minutesString +
+      ":" +
+      secondsString;
+    return date;
   };
 
   return (

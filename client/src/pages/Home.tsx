@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home: FC = () => {
   //useState Hooks
   let [restaurants, setRestaurants] = useState<
-    { _id: number; name: string; rating: number; cost: string }[]
+    { id: number; date: string; name: string; rating: number; cost: string }[]
   >([]);
   let [noRestaurant, setNoRestaurant] = useState<boolean>(false);
 
@@ -33,6 +33,7 @@ const Home: FC = () => {
       <table>
         <tbody>
           <tr>
+            <th>Date</th>
             <th>Restaurant Name</th>
             <th>Rating</th>
             <th>Cost</th>
@@ -42,12 +43,13 @@ const Home: FC = () => {
             let idx = i;
             return (
               <tr key={idx}>
+                <td>{data.date}</td>
                 <td>{data.name}</td>
                 <td>{data.rating}</td>
                 <td>{data.cost}</td>
                 <td>
                   <button>
-                    <Link to={`/delete/${data.name}`}>Delete</Link>
+                    <Link to={`/view/${data.id}`}>View</Link>
                   </button>
                 </td>
               </tr>

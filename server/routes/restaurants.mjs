@@ -12,6 +12,16 @@ router.get("/", async (req, res) => {
   res.send(results).status(200);
 });
 
+// Get a single restaurant
+router.get("/:id", async (req, res) => {
+  let collection = await db.collection("restaurants");
+  let query = { id: parseInt(req.params.id) };
+  let result = await collection.findOne(query);
+
+  if (!result) res.send("Not found").status(404);
+  else res.send(result).status(200);
+});
+
 // Add a new document to the collection
 router.post("/", async (req, res) => {
   let collection = await db.collection("restaurants");
@@ -36,7 +46,7 @@ router.patch("/restaurants/:id", async (req, res) => {
 
 // Delete an entry
 router.delete("/:id", async (req, res) => {
-  const query = { name: req.params.id };
+  const query = { id: parseInt(req.params.id) };
 
   const collection = db.collection("restaurants");
   let result = await collection.deleteOne(query);
