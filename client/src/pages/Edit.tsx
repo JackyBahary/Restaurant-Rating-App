@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 import { useNavigate, useParams } from "react-router-dom";
+import StarSelect from "../components/Select/StarSelect";
 
 const Edit: FC = () => {
   let params = useParams();
@@ -16,7 +17,7 @@ const Edit: FC = () => {
   }>({ id: 0, date: "", name: "n/a", rating: 0, cost: "n/a" });
   let [restaurantLoaded, setRestaurantLoaded] = useState<boolean>(false);
   let [restaurantName, setRestaurantName] = useState<string>("");
-  let [rating, setRating] = useState<number>(1);
+  let [rating, setRating] = useState<number>(0); // Keep this at 0, for the condition at StarSelect element
   let [cost, setCost] = useState<string>("$");
 
   //useEffect Hooks
@@ -59,6 +60,10 @@ const Edit: FC = () => {
     navigate(`/view/${params.id}`);
   };
 
+  const handleChange = (value: number) => {
+    setRating(value);
+  };
+
   return (
     <>
       <form>
@@ -71,19 +76,15 @@ const Edit: FC = () => {
           value={restaurantName}
         />
         <br />
-        <label htmlFor="rating">Rating: </label>
-        <select
-          id="rating"
-          name="rating"
-          onChange={(e) => setRating(parseInt(e.target.value))}
-          value={rating}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+        {rating != 0 && ( // Make sure the rating is assigned before passing it as a prop to StarSelect
+          <StarSelect
+            id="ratingStar"
+            placeholder="Select Rating"
+            change={handleChange}
+            rating={rating}
+            addOrEdit="edit"
+          />
+        )}
         <br />
         <label htmlFor="cost">Cost: </label>
         <select
