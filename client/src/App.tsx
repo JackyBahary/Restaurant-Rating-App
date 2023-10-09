@@ -7,6 +7,7 @@ import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
+import Delete from "./pages/Delete";
 
 const App: FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: FC = () => {
             <Route index element={<Home />} />
             <Route path="add" element={<Add />} />
             <Route path="update" element={<Update />} />
+            <Route path="delete/:id" element={<Delete />} />
           </Route>
         </Routes>
       </BrowserRouter>

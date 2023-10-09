@@ -5,7 +5,7 @@ const Add: FC = () => {
   //useState Hooks
   let [restaurantName, setRestaurantName] = useState<string>("");
   let [rating, setRating] = useState<number>(1);
-  let [cost, setCost] = useState<string>("");
+  let [cost, setCost] = useState<string>("$");
 
   // Add new restaurant
   const handleSubmit = async () => {

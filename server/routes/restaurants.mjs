@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 router.patch("/restaurants/:id", async (req, res) => {
   const query = { _id: ObjectId(req.params.id) };
   const updates = {
-    $push: { name: req.body },
+    $set: { name: req.body, rating: req.body, cost: req.body },
   };
 
   let collection = await db.collection("restaurants");
@@ -36,7 +36,7 @@ router.patch("/restaurants/:id", async (req, res) => {
 
 // Delete an entry
 router.delete("/:id", async (req, res) => {
-  const query = { _id: ObjectId(req.params.id) };
+  const query = { name: req.params.id };
 
   const collection = db.collection("restaurants");
   let result = await collection.deleteOne(query);

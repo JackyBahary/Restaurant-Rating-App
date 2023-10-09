@@ -25,11 +25,6 @@ const Layout: FC = () => {
               Update
             </NavLink>
           </li>
-          <li className="navbar__item">
-            <NavLink className="navbar__link" to="/">
-              Delete
-            </NavLink>
-          </li>
         </ul>
       </nav>
       <Outlet />

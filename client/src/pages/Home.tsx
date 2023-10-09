@@ -7,6 +7,7 @@ const Home: FC = () => {
   let [restaurants, setRestaurants] = useState<
     { _id: number; name: string; rating: number; cost: string }[]
   >([]);
+  let [noRestaurant, setNoRestaurant] = useState<boolean>(false);
 
   //useEffect Hooks
   useEffect(() => {
@@ -19,27 +20,40 @@ const Home: FC = () => {
       resp.json()
     );
     setRestaurants(results);
+    if (results.length == 0) {
+      setNoRestaurant(true);
+    } else {
+      setNoRestaurant(false);
+    }
   };
 
   return (
     <>
       <h1>Restaurant List</h1>
       <table>
-        <tr>
-          <th>Restaurant Name</th>
-          <th>Rating</th>
-          <th>Cost</th>
-        </tr>
-        {restaurants.map(function (data, i) {
-          let idx = i;
-          return (
-            <tr key={idx}>
-              <td>{data.name}</td>
-              <td>{data.rating}</td>
-              <td>{data.cost}</td>
-            </tr>
-          );
-        })}
+        <tbody>
+          <tr>
+            <th>Restaurant Name</th>
+            <th>Rating</th>
+            <th>Cost</th>
+          </tr>
+          <tr>{noRestaurant && <td>No Restaurants</td>}</tr>
+          {restaurants.map(function (data, i) {
+            let idx = i;
+            return (
+              <tr key={idx}>
+                <td>{data.name}</td>
+                <td>{data.rating}</td>
+                <td>{data.cost}</td>
+                <td>
+                  <button>
+                    <Link to={`/delete/${data.name}`}>Delete</Link>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
       <button>
         <Link to="/add">Add New Restaurant</Link>

@@ -2,16 +2,16 @@ import { FC, useState } from "react";
 import { baseUrl } from "../config";
 
 const Update: FC = () => {
+  let id = "652268364d14acde5024e971";
+
   //useState Hooks
   let [restaurantName, setRestaurantName] = useState<string>("");
   let [rating, setRating] = useState<number>(1);
   let [cost, setCost] = useState<string>("");
 
-  // Add new restaurant
-  const handleSubmit = async () => {
-    console.log(rating);
-    await fetch(`${baseUrl}/restaurants`, {
-      method: "POST",
+  const handleUpdate = async () => {
+    await fetch(`${baseUrl}/restaurants/restaurants${id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -21,12 +21,11 @@ const Update: FC = () => {
         cost,
       }),
     })
-      .then((resp) => resp.json())
+      .then((res) => res.json())
       .catch((err) => console.log(err));
     setRestaurantName("");
     setRating(1);
     setCost("$");
-    window.location.reload();
   };
 
   return (
@@ -62,7 +61,7 @@ const Update: FC = () => {
           <option value="$$$$$">$$$$$</option>
         </select>
         <br />
-        <button type="button" onClick={handleSubmit}>
+        <button type="button" onClick={handleUpdate}>
           Submit
         </button>
       </form>
