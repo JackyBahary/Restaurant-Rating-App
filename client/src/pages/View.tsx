@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const View: FC = () => {
   let params = useParams();
@@ -20,7 +20,7 @@ const View: FC = () => {
     loadRestaurant();
   }, []);
 
-  // Fetch restaurant
+  // Fetch a restaurant
   const loadRestaurant = async () => {
     let results = await fetch(`${baseUrl}/restaurants/${params.id}`).then(
       (resp) => resp.json()
@@ -28,7 +28,7 @@ const View: FC = () => {
     setRestaurant(results);
   };
 
-  // Delete restaurant
+  // Delete a restaurant
   const handleDelete = async () => {
     await fetch(`${baseUrl}/restaurants/${params.id}`, {
       method: "DELETE",
@@ -55,6 +55,9 @@ const View: FC = () => {
           </tr>
           <tr>
             <td>
+              <button type="button">
+                <Link to={`/edit/${params.id}`}>Edit</Link>
+              </button>
               <button type="button" onClick={handleDelete}>
                 Delete
               </button>

@@ -20,12 +20,8 @@ const Layout: FC = () => {
               Add
             </NavLink>
           </li>
-          <li className="navbar__item">
-            <NavLink className="navbar__link" to="/update">
-              Update
-            </NavLink>
-          </li>
         </ul>
+        <div className="right">Logout</div>
       </nav>
       <Outlet />
     </>

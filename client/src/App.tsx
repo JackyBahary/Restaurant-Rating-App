@@ -6,8 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
-import Update from "./pages/Update";
 import View from "./pages/View";
+import Edit from "./pages/Edit";
 
 const App: FC = () => {
   return (
@@ -17,8 +17,8 @@ const App: FC = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="add" element={<Add />} />
-            <Route path="update" element={<Update />} />
             <Route path="view/:id" element={<View />} />
+            <Route path="edit/:id" element={<Edit />} />
           </Route>
         </Routes>
       </BrowserRouter>

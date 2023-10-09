@@ -3,11 +3,11 @@ import { baseUrl } from "../config";
 
 const Add: FC = () => {
   //useState Hooks
+  let [restaurantID, setRestaurantID] = useState<number>(0);
+  let [date, setDate] = useState<string>();
   let [restaurantName, setRestaurantName] = useState<string>("");
   let [rating, setRating] = useState<number>(1);
   let [cost, setCost] = useState<string>("$");
-  let [restaurantID, setRestaurantID] = useState<number>(0);
-  let [date, setDate] = useState<string>();
 
   useEffect(() => {
     setRestaurantID(Date.now);

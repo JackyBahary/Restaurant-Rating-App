@@ -33,9 +33,9 @@ router.post("/", async (req, res) => {
 
 // Update the restaurant
 router.patch("/restaurants/:id", async (req, res) => {
-  const query = { _id: ObjectId(req.params.id) };
+  const query = { id: parseInt(req.params.id) };
   const updates = {
-    $set: { name: req.body, rating: req.body, cost: req.body },
+    $set: { name: req.body.name, rating: req.body.rating, cost: req.body.cost },
   };
 
   let collection = await db.collection("restaurants");
