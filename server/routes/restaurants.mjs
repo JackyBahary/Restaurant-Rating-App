@@ -1,6 +1,5 @@
 import express from "express";
 import db from "../db/conn.mjs";
-import { ObjectId } from "mongodb";
 
 const router = express.Router();
 
@@ -32,7 +31,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update the restaurant
-router.patch("/restaurants/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
   const query = { id: parseInt(req.params.id) };
   const updates = {
     $set: { name: req.body.name, rating: req.body.rating, cost: req.body.cost },

@@ -44,7 +44,7 @@ const Edit: FC = () => {
 
   // Update a restaurant
   const handleUpdate = async () => {
-    await fetch(`${baseUrl}/restaurants/restaurants/${params.id}`, {
+    await fetch(`${baseUrl}/restaurants/${params.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
