@@ -33,7 +33,7 @@ const View: FC = () => {
     await fetch(`${baseUrl}/restaurants/${params.id}`, {
       method: "DELETE",
     });
-    return navigate("/");
+    return navigate("/home");
   };
 
   return (

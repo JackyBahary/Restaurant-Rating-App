@@ -1,8 +1,13 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 import StarSelect from "../components/Select/StarSelect";
+import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Add: FC = () => {
+  // Create navigate function
+  const navigate = useNavigate();
+
   //useState Hooks
   let [restaurantID, setRestaurantID] = useState<number>(0);
   let [date, setDate] = useState<string>();
@@ -10,10 +15,14 @@ const Add: FC = () => {
   let [rating, setRating] = useState<number>(0.5);
   let [cost, setCost] = useState<string>("$");
 
+  // useEffect Hooks
   useEffect(() => {
     setRestaurantID(Date.now);
     setDate(formatDate());
   }, []);
+
+  // UseContext Hook, to get authentication functions from App.tsx
+  const { email, password } = useContext(AuthContext);
 
   // Add new restaurant
   const handleSubmit = async () => {
@@ -28,6 +37,7 @@ const Add: FC = () => {
         name: restaurantName,
         rating,
         cost,
+        account: { email, password },
       }),
     })
       .then((resp) => resp.json())
@@ -36,7 +46,7 @@ const Add: FC = () => {
     setRestaurantName("");
     setRating(0.5);
     setCost("$");
-    window.location.reload();
+    navigate("/home");
   };
 
   const handleChange = (value: number) => {

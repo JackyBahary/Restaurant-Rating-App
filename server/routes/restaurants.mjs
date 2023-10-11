@@ -11,6 +11,18 @@ router.get("/", async (req, res) => {
   res.send(results).status(200);
 });
 
+// Get list of restaurants
+router.get("/:email/:password", async (req, res) => {
+  let collection = await db.collection("restaurants");
+  let results = await collection
+    .find({
+      account: { email: req.params.email, password: req.params.password },
+    })
+    .toArray();
+
+  res.send(results).status(200);
+});
+
 // Get a single restaurant
 router.get("/:id", async (req, res) => {
   let collection = await db.collection("restaurants");
