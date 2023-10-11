@@ -1,8 +1,12 @@
 import { FC, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { baseUrl } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const Login: FC = () => {
+  // Create navigate function
+  const navigate = useNavigate();
+
   // UseContext Hook, to get authentication functions from App.tsx
   const { email, setEmail, password, setPassword, loggedIn, setLoggedIn } =
     useContext(AuthContext);
@@ -29,6 +33,7 @@ const Login: FC = () => {
       setLoggedIn(true);
       setEmail(user.account.email);
       setPassword(user.account.password);
+      navigate("/home");
     } catch (error) {
       setLoggedIn(false);
       setEmail("");
