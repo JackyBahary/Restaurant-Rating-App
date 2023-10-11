@@ -43,7 +43,7 @@ const Layout: FC = () => {
             <ul className="navbar__items">
               <li className="navbar__item">
                 <NavLink className="navbar__link" to="/home">
-                  Home
+                  Restaurants
                 </NavLink>
               </li>
               <li className="navbar__item">
