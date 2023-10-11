@@ -21,10 +21,10 @@ const Register: FC = () => {
     setDate(formatDate());
   }, []);
 
-  // Add new user
+  // Add User to DB and catch error if duplicate user found
   const handleRegister = async () => {
     if (email != "" && password != "") {
-      await fetch(`${baseUrl}/users`, {
+      await fetch(`${baseUrl}/users/${email}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -35,15 +35,19 @@ const Register: FC = () => {
           email: email,
           password: password,
         }),
-      })
-        .then((resp) => resp.json())
-        .catch((err) => console.log(err));
-      setUserID(0);
-      setDate("");
-      setEmail(email);
-      setPassword(password);
-      setLoggedIn(true);
-      navigate("/home");
+      }).then((resp) => {
+        if (resp.status == 400) {
+          alert("Email is already used! Please use a different Email!");
+        } else {
+          resp.json();
+          setUserID(0);
+          setDate("");
+          setEmail(email);
+          setPassword(password);
+          setLoggedIn(true);
+          navigate("/home");
+        }
+      });
     } else {
       alert("Please fill out the email and password fields!");
     }
