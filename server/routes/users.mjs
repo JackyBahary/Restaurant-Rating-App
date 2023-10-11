@@ -15,4 +15,13 @@ router.get("/:email/:password", async (req, res) => {
   else res.send(result).status(200);
 });
 
+// Add a new document to the collection
+router.post("/", async (req, res) => {
+  let collection = await db.collection("users");
+  let newDocument = req.body;
+  let result = await collection.insertOne(newDocument);
+
+  res.send(result).status(204);
+});
+
 export default router;

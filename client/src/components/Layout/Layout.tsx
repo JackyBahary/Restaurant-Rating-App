@@ -31,6 +31,11 @@ const Layout: FC = () => {
                 Login
               </NavLink>
             </li>
+            <li className="navbar__item">
+              <NavLink className="navbar__link" to="/register">
+                Register
+              </NavLink>
+            </li>
           </ul>
         )}
         {loggedIn && (
