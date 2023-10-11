@@ -22,7 +22,7 @@ const Add: FC = () => {
   }, []);
 
   // UseContext Hook, to get authentication functions from App.tsx
-  const { email, password } = useContext(AuthContext);
+  const { email } = useContext(AuthContext);
 
   // Add new restaurant
   const handleSubmit = async () => {
@@ -37,7 +37,7 @@ const Add: FC = () => {
         name: restaurantName,
         rating,
         cost,
-        account: { email, password },
+        email: email,
       }),
     })
       .then((resp) => resp.json())

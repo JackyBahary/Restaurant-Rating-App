@@ -22,9 +22,9 @@ const View: FC = () => {
 
   // Fetch a restaurant
   const loadRestaurant = async () => {
-    let results = await fetch(`${baseUrl}/restaurants/${params.id}`).then(
-      (resp) => resp.json()
-    );
+    let results = await fetch(
+      `${baseUrl}/restaurants/restaurant/${params.id}`
+    ).then((resp) => resp.json());
     setRestaurant(results);
   };
 

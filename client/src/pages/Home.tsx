@@ -11,7 +11,7 @@ const Home: FC = () => {
   let [noRestaurant, setNoRestaurant] = useState<boolean>(false);
 
   // UseContext Hook, to get authentication functions from App.tsx
-  const { email, password } = useContext(AuthContext);
+  const { email } = useContext(AuthContext);
 
   //useEffect Hooks
   useEffect(() => {
@@ -20,9 +20,9 @@ const Home: FC = () => {
 
   // Fetch restaurants
   const loadRestaurants = async () => {
-    let results = await fetch(
-      `${baseUrl}/restaurants/${email}/${password}`
-    ).then((resp) => resp.json());
+    let results = await fetch(`${baseUrl}/restaurants/${email}`).then((resp) =>
+      resp.json()
+    );
     setRestaurants(results);
     if (results.length == 0) {
       setNoRestaurant(true);
