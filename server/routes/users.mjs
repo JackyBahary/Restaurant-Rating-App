@@ -5,9 +5,10 @@ const router = express.Router();
 
 // Get a user
 router.get("/:email/:password", async (req, res) => {
-  let collection = await db.collection("restaurants");
+  let collection = await db.collection("users");
   let query = {
-    account: { email: req.params.email, password: req.params.password },
+    email: req.params.email,
+    password: req.params.password,
   };
   let result = await collection.findOne(query);
 

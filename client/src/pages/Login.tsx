@@ -25,14 +25,12 @@ const Login: FC = () => {
       const user: {
         id: number;
         date: string;
-        name: string;
-        rating: number;
-        cost: string;
-        account: { email: string; password: string };
+        email: string;
+        password: string;
       } = await handleLogin();
       setLoggedIn(true);
-      setEmail(user.account.email);
-      setPassword(user.account.password);
+      setEmail(user.email);
+      setPassword(user.password);
       navigate("/home");
     } catch (error) {
       setLoggedIn(false);
