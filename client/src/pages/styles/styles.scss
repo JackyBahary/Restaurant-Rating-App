@@ -30,9 +30,8 @@
         }   
     }
 
-    & button {
+    & .button {
         height: 30px;
-        width: 60px;
         border: 1px solid rgb(79, 79, 79);
         border-radius: 30px;
         cursor: pointer;
@@ -41,6 +40,14 @@
         &:hover {
             border: 2px solid rgb(89, 89, 89);
             background: rgb(218, 218, 218);
+        }
+
+        &__login {
+            width: 60px;
+        }
+
+        &__register {
+            width: 70px;
         }
     }
 }

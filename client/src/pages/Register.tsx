@@ -79,33 +79,36 @@ const Register: FC = () => {
 
   return (
     <>
-      <div>
-        Email is {email} <br />
-        Password is {password} <br />
+      <div className="container">
+        <form className="form">
+          <div className="label">Sign Up</div>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <button
+            className="button button__register"
+            type="button"
+            onClick={handleRegister}
+          >
+            Register
+          </button>
+        </form>
       </div>
-      <form>
-        <label htmlFor="email">Email: </label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <button type="button" onClick={handleRegister}>
-          Register
-        </button>
-      </form>
     </>
   );
 };

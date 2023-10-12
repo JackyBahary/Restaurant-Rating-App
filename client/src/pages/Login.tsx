@@ -1,8 +1,8 @@
 import { FC, useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
-import { baseUrl } from "../../config";
+import { AuthContext } from "../contexts/AuthContext";
+import { baseUrl } from "../config";
 import { useNavigate } from "react-router-dom";
-import "./Login.scss";
+import "./styles/styles.scss";
 
 const Login: FC = () => {
   // Create navigate function
@@ -68,7 +68,11 @@ const Login: FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <button type="button" onClick={login}>
+          <button
+            className="button button__login"
+            type="button"
+            onClick={login}
+          >
             Log In
           </button>
         </form>
