@@ -46,11 +46,6 @@ const Layout: FC = () => {
                   Restaurants
                 </NavLink>
               </li>
-              <li className="navbar__item">
-                <NavLink className="navbar__link" to="/add">
-                  Add
-                </NavLink>
-              </li>
             </ul>
             <div className="right">
               <NavLink className="icon__user" to={`/user/${email}`}>
