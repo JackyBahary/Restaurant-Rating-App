@@ -11,6 +11,7 @@ import Edit from "./pages/Edit";
 import Login from "./pages/Login";
 import { AuthContext } from "./contexts/AuthContext";
 import Register from "./pages/Register";
+import User from "./pages/User";
 
 const App: FC = () => {
   const [email, setEmail] = useState("");
@@ -33,6 +34,7 @@ const App: FC = () => {
               <Route path="add" element={<Add />} />
               <Route path="view/:id" element={<View />} />
               <Route path="edit/:id" element={<Edit />} />
+              <Route path="user/:id" element={<User />} />
             </Route>
           </Routes>
         </BrowserRouter>

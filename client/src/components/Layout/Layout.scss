@@ -43,13 +43,13 @@
                 padding-bottom: 5px;
 
                 &.active {
-                    color: #767e83;
-                    border-bottom: 3px solid #767e83;
+                    color: #3E7846;
+                    border-bottom: 3px solid #3E7846;
                 }
 
                 &:hover {
-                    color: #767e83;
-                    border-bottom: 3px solid #767e83;
+                    color: #3E7846;
+                    border-bottom: 3px solid #3E7846;
                     transition: border 0.1s ease-in-out;
                 }
             }
@@ -60,6 +60,35 @@
         width: 33.33%;
         display: flex;
         justify-content: center;
+
+        svg {
+            width: 50px;
+            height: auto;
+            margin-right: 40px;
+
+            &:hover {
+                cursor: pointer;
+
+                path {
+                    stroke: #3E7846;
+                }
+            }
+        }
+
+        & .icon__user {
+            svg {
+                width: 45px;
+                margin-top: 5px;
+            }   
+
+            &.active {
+                svg {
+                    path {
+                        stroke: #3E7846;
+                    }
+                }
+            }
+        }
     }
 }
 
