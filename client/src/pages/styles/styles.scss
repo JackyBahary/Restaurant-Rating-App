@@ -27,15 +27,33 @@
         &:first-of-type {
             margin-top: 20px;
             margin-bottom: 0px;
-        }   
+        }  
+
+        &::placeholder { 
+            font-size: 13px;
+            font-family: Helvetica, sans-serif;
+        }
+
+        &:-ms-input-placeholder {
+            font-size: 13px;
+            font-family: Helvetica, sans-serif;
+        }
+
+        &::-ms-input-placeholder { /* Edge 12-18 */
+            font-size: 13px;
+            font-family: Helvetica, sans-serif;
+        }
+
     }
 
     & .button {
         height: 30px;
+        width: 50px;
         border: 1px solid rgb(79, 79, 79);
         border-radius: 30px;
         cursor: pointer;
         font-family: Helvetica, sans-serif;
+        margin-top: 20px;
 
         &:hover {
             border: 2px solid rgb(89, 89, 89);
@@ -43,11 +61,33 @@
         }
 
         &__login {
+            margin-top: 0px;
             width: 60px;
         }
 
         &__register {
+            margin-top: 0px;
             width: 70px;
+        }
+    }
+
+    & .select {
+        height: 45px;
+        width: 323px;
+        border-radius: 30px;
+        padding-left: 20px;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='lightgray' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 2em;
+
+        & option {
+            color: black;
+        }
+
+        &:invalid, option[value=""] {
+            color: grey;
         }
     }
 }

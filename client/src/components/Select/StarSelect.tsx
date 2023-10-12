@@ -146,12 +146,12 @@ const StarSelect: FC<Props> = (props) => {
       {/* // If the select component is used in "add" page */}
       {props.addOrEdit === "add" && (
         <>
-          <label htmlFor="ratingStar">Rating: </label>
           <SelectElement
             inputId="ratingStar"
             options={options}
-            className="select"
+            className="select__star"
             placeholder={props.placeholder}
+            isSearchable={false}
             onChange={(e) => {
               if (e != null) {
                 props.change(parseFloat(e.value)); // Calls the handleChange function passed down from Add.tsx through 'change' function prop
@@ -164,17 +164,17 @@ const StarSelect: FC<Props> = (props) => {
       {props.addOrEdit === "edit" &&
         index >= 0 && ( // Makes sure index is already assigned first before rendering
           <>
-            <label htmlFor="ratingStar">Rating: </label>
             <SelectElement
               inputId="ratingStar"
               options={options}
-              className="select"
+              className="select__star"
               placeholder={props.placeholder}
               onChange={(e) => {
                 if (e != null) {
                   props.change(parseFloat(e.value)); // Calls the handleChange function passed down from Edit.tsx through 'change' function prop
                 }
               }}
+              isSearchable={false}
               defaultValue={options[index]} // Assigns the default value of the select component to be the options array with the index which corresponds to the saved rating
             />
           </>

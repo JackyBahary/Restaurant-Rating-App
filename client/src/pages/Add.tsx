@@ -79,35 +79,46 @@ const Add: FC = () => {
 
   return (
     <>
-      <form>
-        <label htmlFor="rname">Restaurant name: </label>
-        <input
-          type="text"
-          id="rname"
-          name="rname"
-          onChange={(e) => setRestaurantName(e.target.value)}
-        />
-        <br />
-        <StarSelect
-          id="ratingStar"
-          placeholder="Select Rating"
-          change={handleChange}
-          addOrEdit="add"
-        />
-        <br />
-        <label htmlFor="cost">Cost: </label>
-        <select id="cost" name="cost" onChange={(e) => setCost(e.target.value)}>
-          <option value="$">$</option>
-          <option value="$$">$$</option>
-          <option value="$$$">$$$</option>
-          <option value="$$$$">$$$$</option>
-          <option value="$$$$$">$$$$$</option>
-        </select>
-        <br />
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+      <div className="container">
+        <form className="form">
+          <div className="label">New Restaurant</div>
+          <input
+            type="text"
+            id="rname"
+            name="rname"
+            placeholder="Restaurant Name"
+            onChange={(e) => setRestaurantName(e.target.value)}
+          />
+          <br />
+          <StarSelect
+            id="ratingStar"
+            placeholder="Select Rating"
+            change={handleChange}
+            addOrEdit="add"
+          />
+          <br />
+          <select
+            id="cost"
+            name="cost"
+            onChange={(e) => setCost(e.target.value)}
+            className="select"
+            required
+          >
+            <option value="" disabled selected hidden>
+              Select the cost rating
+            </option>
+            <option value="$">$</option>
+            <option value="$$">$$</option>
+            <option value="$$$">$$$</option>
+            <option value="$$$$">$$$$</option>
+            <option value="$$$$$">$$$$$</option>
+          </select>
+          <br />
+          <button className="button" type="button" onClick={handleSubmit}>
+            Add
+          </button>
+        </form>
+      </div>
     </>
   );
 };

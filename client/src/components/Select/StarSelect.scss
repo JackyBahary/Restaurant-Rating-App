@@ -1,6 +1,51 @@
 // Makes the select field inline with label
-.select {
+.select__star {
     display: inline-flex;
-    margin: 10px;
-    width: 250px;
+    height: 45px;
+    width: 323px;
+    margin: 10px 0;
+
+    & .css-13cymwt-control { // Styling for when the select box is not clicked, default styling
+        width: 100%;
+        border-radius: 30px;
+        padding-left: 10px;
+        font-family: helvetica, sans-serif;
+        font-size: 13px;
+        border: 1px solid rgb(79, 79, 79);
+
+        &:hover {
+            border: 1px solid rgb(79, 79, 79);
+        }
+    }
+
+    & .css-t3ipsp-control { // Styling for when the select box is clicked, options shown
+        width: 100%;
+        border-radius: 30px;
+        padding-left: 10px; 
+        font-family: Helvetica, sans-serif;
+        font-size: 13px;
+        border: 2px solid black;
+        box-shadow: none;
+        transition: none;
+
+        &:hover {
+            border: 2px solid black;
+        }
+    }
+
+    & .css-art2ul-ValueContainer2 { // Styling for the clickable area of the select box
+        height: 34px;
+    }
+
+    & .css-1jqq78o-placeholder { // Styling for placeholder in select box
+        margin-bottom: 30px;
+    }
+
+    & .css-1u9des2-indicatorSeparator { // Styling for the line and arrow container at the right side of the select box
+        margin-bottom: 10px;
+    }
+
+    & .css-1dimb5e-singleValue { // Styling for when the star is clicked, content of the select box
+        margin-bottom: -22px;
+    }
 }
