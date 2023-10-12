@@ -50,31 +50,45 @@ const Login: FC = () => {
       <div className="container">
         <form className="form">
           <div className="label">Welcome</div>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <button
-            className="button button__login"
-            type="button"
-            onClick={login}
-          >
-            Log In
-          </button>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    value={email}
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    className="button button__login"
+                    type="button"
+                    onClick={login}
+                  >
+                    Log In
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </form>
       </div>
     </>

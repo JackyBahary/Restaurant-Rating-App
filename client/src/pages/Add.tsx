@@ -88,49 +88,63 @@ const Add: FC = () => {
         <form className="form">
           <div className="label">New Restaurant</div>
           <table>
-            <tr>
-              <input
-                type="text"
-                id="rname"
-                name="rname"
-                placeholder="Restaurant Name"
-                onChange={(e) => setRestaurantName(e.target.value)}
-              />
-            </tr>
-            <tr>
-              <StarSelect
-                id="ratingStar"
-                placeholder="Select Rating"
-                change={handleChange}
-                addOrEdit="add"
-              />
-            </tr>
-            <tr>
-              <select
-                id="cost"
-                name="cost"
-                onChange={(e) => setCost(e.target.value)}
-                className="select"
-                required
-              >
-                <option value="" disabled selected hidden>
-                  Select the cost rating
-                </option>
-                <option value="$">$</option>
-                <option value="$$">$$</option>
-                <option value="$$$">$$$</option>
-                <option value="$$$$">$$$$</option>
-                <option value="$$$$$">$$$$$</option>
-              </select>
-            </tr>
-            <tr>
-              <button className="button" type="button" onClick={handleSubmit}>
-                Add
-              </button>
-              <button className="button" type="button" onClick={handleBack}>
-                Back
-              </button>
-            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    id="rname"
+                    name="rname"
+                    placeholder="Restaurant Name"
+                    onChange={(e) => setRestaurantName(e.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <StarSelect
+                    id="ratingStar"
+                    placeholder="Select Rating"
+                    change={handleChange}
+                    addOrEdit="add"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select
+                    id="cost"
+                    name="cost"
+                    onChange={(e) => setCost(e.target.value)}
+                    className="select"
+                    required
+                  >
+                    <option value="" disabled selected hidden>
+                      Select the cost rating
+                    </option>
+                    <option value="$">$</option>
+                    <option value="$$">$$</option>
+                    <option value="$$$">$$$</option>
+                    <option value="$$$$">$$$$</option>
+                    <option value="$$$$$">$$$$$</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={handleSubmit}
+                  >
+                    Add
+                  </button>
+                  <button className="button" type="button" onClick={handleBack}>
+                    Back
+                  </button>
+                </td>
+              </tr>
+            </tbody>
           </table>
           <br />
         </form>

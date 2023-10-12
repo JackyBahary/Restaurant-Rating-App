@@ -75,64 +75,66 @@ const Edit: FC = () => {
         <form className="form form__update">
           <div className="label">Modify Rating</div>
           <table>
-            <tr>
-              <td>Restaurant Name:</td>
-              <td>
-                <input
-                  type="text"
-                  id="rname"
-                  name="rname"
-                  onChange={(e) => setRestaurantName(e.target.value)}
-                  value={restaurantName}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Rating: </td>
-              <td>
-                {rating != 0 && ( // Make sure the rating is assigned before passing it as a prop to StarSelect
-                  <StarSelect
-                    id="ratingStar"
-                    placeholder="Select Rating"
-                    change={handleChange}
-                    rating={rating}
-                    addOrEdit="edit"
+            <tbody>
+              <tr>
+                <td>Restaurant Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    id="rname"
+                    name="rname"
+                    onChange={(e) => setRestaurantName(e.target.value)}
+                    value={restaurantName}
                   />
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>Cost:</td>
-              <td>
-                <select
-                  id="cost"
-                  name="cost"
-                  onChange={(e) => setCost(e.target.value)}
-                  value={cost}
-                  className="select"
-                >
-                  <option value="$">$</option>
-                  <option value="$$">$$</option>
-                  <option value="$$$">$$$</option>
-                  <option value="$$$$">$$$$</option>
-                  <option value="$$$$$">$$$$$</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  className="button button__update"
-                  type="button"
-                  onClick={handleUpdate}
-                >
-                  Update
-                </button>
-                <button className="button" type="button" onClick={handleBack}>
-                  Back
-                </button>
-              </td>
-            </tr>
+                </td>
+              </tr>
+              <tr>
+                <td>Rating: </td>
+                <td>
+                  {rating != 0 && ( // Make sure the rating is assigned before passing it as a prop to StarSelect
+                    <StarSelect
+                      id="ratingStar"
+                      placeholder="Select Rating"
+                      change={handleChange}
+                      rating={rating}
+                      addOrEdit="edit"
+                    />
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>Cost:</td>
+                <td>
+                  <select
+                    id="cost"
+                    name="cost"
+                    onChange={(e) => setCost(e.target.value)}
+                    value={cost}
+                    className="select"
+                  >
+                    <option value="$">$</option>
+                    <option value="$$">$$</option>
+                    <option value="$$$">$$$</option>
+                    <option value="$$$$">$$$$</option>
+                    <option value="$$$$$">$$$$$</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    className="button button__update"
+                    type="button"
+                    onClick={handleUpdate}
+                  >
+                    Update
+                  </button>
+                  <button className="button" type="button" onClick={handleBack}>
+                    Back
+                  </button>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </form>
       </div>
