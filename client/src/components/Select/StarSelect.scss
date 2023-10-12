@@ -47,5 +47,12 @@
 
     & .css-1dimb5e-singleValue { // Styling for when the star is clicked, content of the select box
         margin-bottom: -22px;
+        margin-left: -2px;
+    }
+
+    &--edit { // Specialised styling for edit form
+        & .css-1dimb5e-singleValue { // Styling for when the star is clicked, content of the select box
+            margin-bottom: 10px;
+        }
     }
 }

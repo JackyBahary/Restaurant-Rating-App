@@ -60,7 +60,7 @@
             background: rgb(218, 218, 218);
         }
 
-        &__login {
+        &__login, &__update {
             margin-top: 0px;
             width: 60px;
         }
@@ -88,6 +88,16 @@
 
         &:invalid, option[value=""] {
             color: grey;
+        }
+    }
+
+    &__update {
+        input {
+            margin-top: 0;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
         }
     }
 }
