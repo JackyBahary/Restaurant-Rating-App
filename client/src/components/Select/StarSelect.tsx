@@ -167,7 +167,7 @@ const StarSelect: FC<Props> = (props) => {
             <SelectElement
               inputId="ratingStar"
               options={options}
-              className="select__star select__star--edit"
+              className="select__star"
               placeholder={props.placeholder}
               onChange={(e) => {
                 if (e != null) {

@@ -38,7 +38,7 @@
     }
 
     & .css-1jqq78o-placeholder { // Styling for placeholder in select box
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     & .css-1u9des2-indicatorSeparator { // Styling for the line and arrow container at the right side of the select box
@@ -46,13 +46,7 @@
     }
 
     & .css-1dimb5e-singleValue { // Styling for when the star is clicked, content of the select box
-        margin-bottom: -22px;
+        margin-bottom: 10px;
         margin-left: -2px;
-    }
-
-    &--edit { // Specialised styling for edit form
-        & .css-1dimb5e-singleValue { // Styling for when the star is clicked, content of the select box
-            margin-bottom: 10px;
-        }
     }
 }

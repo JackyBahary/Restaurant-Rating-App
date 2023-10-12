@@ -36,6 +36,11 @@ const View: FC = () => {
     return navigate("/home");
   };
 
+  // Go back to home page
+  const handleBack = () => {
+    navigate("/home");
+  };
+
   return (
     <>
       <h1>Restaurant List</h1>
@@ -60,6 +65,9 @@ const View: FC = () => {
               </button>
               <button type="button" onClick={handleDelete}>
                 Delete
+              </button>
+              <button type="button" onClick={handleBack}>
+                Back
               </button>
             </td>
           </tr>

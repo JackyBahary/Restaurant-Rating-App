@@ -64,10 +64,16 @@ const Edit: FC = () => {
     setRating(value);
   };
 
+  // Go back to view page
+  const handleBack = () => {
+    navigate(`/view/${params.id}`);
+  };
+
   return (
     <>
       <div className="container">
         <form className="form form__update">
+          <div className="label">Modify Rating</div>
           <table>
             <tr>
               <td>Restaurant Name:</td>
@@ -121,6 +127,9 @@ const Edit: FC = () => {
                   onClick={handleUpdate}
                 >
                   Update
+                </button>
+                <button className="button" type="button" onClick={handleBack}>
+                  Back
                 </button>
               </td>
             </tr>
