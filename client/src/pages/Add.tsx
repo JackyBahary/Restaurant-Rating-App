@@ -87,7 +87,7 @@ const Add: FC = () => {
       <div className="container">
         <form className="form">
           <div className="label">New Restaurant</div>
-          <table>
+          <table className="table">
             <tbody>
               <tr>
                 <td>

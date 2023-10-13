@@ -50,7 +50,7 @@ const Login: FC = () => {
       <div className="container">
         <form className="form">
           <div className="label">Welcome</div>
-          <table>
+          <table className="table">
             <tbody>
               <tr>
                 <td>

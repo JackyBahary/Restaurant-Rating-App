@@ -74,7 +74,7 @@ const Edit: FC = () => {
       <div className="container">
         <form className="form form__update">
           <div className="label">Modify Rating</div>
-          <table>
+          <table className="table">
             <tbody>
               <tr>
                 <td>Restaurant Name:</td>

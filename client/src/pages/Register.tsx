@@ -82,7 +82,7 @@ const Register: FC = () => {
       <div className="container">
         <form className="form">
           <div className="label">Sign Up</div>
-          <table>
+          <table className="table">
             <tbody>
               <tr>
                 <td>

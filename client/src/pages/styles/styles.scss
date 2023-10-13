@@ -4,6 +4,23 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+
+    &__home {
+        flex-direction: column;
+        justify-content: left;
+        align-items: start;
+        margin-left: 12%;
+        width: 75%;
+    }
+
+    &__button {
+        height: fit-content;
+        justify-content: left;
+        
+        button {
+            margin-right: 20px;
+        }
+    }
 }   
 
 .form {
@@ -15,7 +32,7 @@
         font-weight: 400;
     }
 
-    & input {
+    input {
         height: 40px;
         width: 300px;
         padding-left: 20px;
@@ -74,7 +91,7 @@
         background-position: right 1rem center;
         background-size: 2em;
 
-        & option {
+        option {
             color: black;
         }
 
@@ -94,7 +111,29 @@
     }
 }
 
-table {
-    margin-top: 10px;
+.table {
+    margin: 10px 0;
     border-spacing: 0px 20px;
+    width: 100%;
+
+    &__home {
+        border-spacing: 0px;
+
+        th {
+            text-align: left;
+            background-color: #3E7846;
+            padding: 10px;
+        }
+
+        tr {
+            &:nth-child(even) {
+                background-color: rgb(235, 235, 235);
+            }
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 2px solid lightgrey;
+        }
+    }    
 }
