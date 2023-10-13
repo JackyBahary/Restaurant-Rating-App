@@ -15,12 +15,32 @@ import User from "./pages/User";
 
 const App: FC = () => {
   const [email, setEmail] = useState("");
+  const [fname, setFName] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const value = useMemo(
-    () => ({ email, setEmail, password, setPassword, loggedIn, setLoggedIn }),
-    [email, setEmail, password, setPassword, loggedIn, setLoggedIn]
-  ); // Create an object {email, setEmail, password, setPassword} whenever [email, setEmail, password, setPassword] changes
+    () => ({
+      email,
+      setEmail,
+      password,
+      setPassword,
+      fname,
+      setFName,
+      loggedIn,
+      setLoggedIn,
+    }),
+    [
+      email,
+      setEmail,
+      password,
+      setPassword,
+      fname,
+      setFName,
+      loggedIn,
+      setLoggedIn,
+    ]
+  ); /* Create an object {email, setEmail, password, setPassword, fname, setFName, loggedIn, setLoggedIn} whenever 
+        [email, setEmail, password, setPassword, fname, setFName, loggedIn, setLoggedIn] changes */
 
   return (
     <>

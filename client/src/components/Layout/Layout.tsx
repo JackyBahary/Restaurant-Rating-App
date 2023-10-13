@@ -8,12 +8,13 @@ const Layout: FC = () => {
   const navigate = useNavigate();
 
   // UseContext Hook, to get authentication functions from App.tsx
-  const { email, setEmail, loggedIn, setLoggedIn, setPassword } =
+  const { email, setEmail, loggedIn, setLoggedIn, setPassword, setFName } =
     useContext(AuthContext);
 
   const handleLogout = () => {
     setEmail("");
     setPassword("");
+    setFName("");
     setLoggedIn(false);
     navigate("/");
   };
