@@ -43,36 +43,36 @@ const View: FC = () => {
 
   return (
     <>
-      <h1>Restaurant List</h1>
-      <table>
-        <tbody>
-          <tr>
-            <th>Date Added</th>
-            <th>Restaurant Name</th>
-            <th>Rating</th>
-            <th>Cost</th>
-          </tr>
-          <tr>
-            <td>{restaurant.date}</td>
-            <td>{restaurant.name}</td>
-            <td>{restaurant.rating}</td>
-            <td>{restaurant.cost}</td>
-          </tr>
-          <tr>
-            <td>
-              <button type="button">
-                <Link to={`/edit/${params.id}`}>Edit</Link>
-              </button>
-              <button type="button" onClick={handleDelete}>
-                Delete
-              </button>
-              <button type="button" onClick={handleBack}>
-                Back
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="container container__table">
+        <h2>Restaurant List</h2>
+        <table className="table table__view">
+          <tbody>
+            <tr>
+              <th>Date Added</th>
+              <th>Restaurant Name</th>
+              <th>Rating</th>
+              <th>Cost</th>
+            </tr>
+            <tr>
+              <td>{restaurant.date}</td>
+              <td>{restaurant.name}</td>
+              <td>{restaurant.rating}</td>
+              <td>{restaurant.cost}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="container container__button">
+          <button type="button">
+            <Link to={`/edit/${params.id}`}>Edit</Link>
+          </button>
+          <button type="button" onClick={handleDelete}>
+            Delete
+          </button>
+          <button type="button" onClick={handleBack}>
+            Back
+          </button>
+        </div>
+      </div>
     </>
   );
 };

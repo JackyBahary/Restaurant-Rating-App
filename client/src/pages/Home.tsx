@@ -34,7 +34,7 @@ const Home: FC = () => {
 
   return (
     <>
-      <div className="container container__home">
+      <div className="container container__table">
         <h2>Restaurant List</h2>
         <table className="table table__home">
           <tbody>
