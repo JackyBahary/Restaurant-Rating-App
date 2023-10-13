@@ -2,6 +2,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import StarCell from "../components/StarCell";
 
 const Home: FC = () => {
   //useState Hooks
@@ -61,7 +62,7 @@ const Home: FC = () => {
                   </td>
                   <td>{data.date}</td>
                   <td>{data.name}</td>
-                  <td>{data.rating}</td>
+                  <td>{<StarCell rating={data.rating} />}</td>
                   <td>{data.cost}</td>
                 </tr>
               );

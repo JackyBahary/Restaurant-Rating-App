@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 import { useNavigate, useParams } from "react-router-dom";
-import StarSelect from "../components/Select/StarSelect";
+import StarSelect from "../components/StarSelect/StarSelect";
 
 const Edit: FC = () => {
   let params = useParams();

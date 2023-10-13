@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import StarCell from "../components/StarCell";
 
 const View: FC = () => {
   let params = useParams();
@@ -56,7 +57,7 @@ const View: FC = () => {
             <tr>
               <td>{restaurant.date}</td>
               <td>{restaurant.name}</td>
-              <td>{restaurant.rating}</td>
+              <td>{<StarCell rating={restaurant.rating} />}</td>
               <td>{restaurant.cost}</td>
             </tr>
           </tbody>

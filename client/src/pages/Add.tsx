@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect, useState } from "react";
 import { baseUrl } from "../config";
-import StarSelect from "../components/Select/StarSelect";
+import StarSelect from "../components/StarSelect/StarSelect";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
