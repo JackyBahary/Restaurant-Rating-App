@@ -38,7 +38,7 @@ const Login: FC = () => {
         setLoggedIn(false);
         setEmail("");
         setPassword("");
-        alert("Wrong email and password! Try Again!");
+        alert("Account not found! Please try again!");
       }
     } else {
       alert("Please fill out the email and password fields!");
