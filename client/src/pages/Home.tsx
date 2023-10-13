@@ -46,7 +46,7 @@ const Home: FC = () => {
               <th>Rating</th>
               <th>Cost</th>
             </tr>
-            <tr>{noRestaurant && <td>No Restaurants</td>}</tr>
+            <tr>{noRestaurant && <td colSpan={5}>No Restaurants</td>}</tr>
             {restaurants.map(function (data, i) {
               let idx = i;
               return (
