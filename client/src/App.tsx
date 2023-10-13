@@ -54,7 +54,7 @@ const App: FC = () => {
               <Route path="add" element={<Add />} />
               <Route path="view/:id" element={<View />} />
               <Route path="edit/:id" element={<Edit />} />
-              <Route path="user/:id" element={<User />} />
+              <Route path="user" element={<User />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -8,7 +8,7 @@ const Layout: FC = () => {
   const navigate = useNavigate();
 
   // UseContext Hook, to get authentication functions from App.tsx
-  const { email, setEmail, loggedIn, setLoggedIn, setPassword, setFName } =
+  const { setEmail, loggedIn, setLoggedIn, setPassword, setFName } =
     useContext(AuthContext);
 
   const handleLogout = () => {
@@ -49,7 +49,7 @@ const Layout: FC = () => {
               </li>
             </ul>
             <div className="right">
-              <NavLink className="icon__user" to={`/user/${email}`}>
+              <NavLink className="icon__user" to={"/user/"}>
                 <svg
                   width="800px"
                   height="800px"
