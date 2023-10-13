@@ -32,4 +32,35 @@ router.post("/:email", async (req, res) => {
   }
 });
 
+// Update user
+router.patch("/:id", async (req, res) => {
+  const query = { id: parseInt(req.params.id) };
+  const updates = {
+    $set: {
+      date: req.body.date,
+      email: req.body.email,
+      password: req.body.password,
+      fname: req.body.fname,
+      lname: req.body.lname,
+      birthDate: req.body.birthDate,
+      phone: req.body.phone,
+    },
+  };
+
+  let collection = await db.collection("users");
+  let result = await collection.updateOne(query, updates);
+
+  res.send(result).status(200);
+});
+
+// Delete a user
+router.delete("/:id", async (req, res) => {
+  const query = { id: parseInt(req.params.id) };
+
+  const collection = db.collection("users");
+  let result = await collection.deleteOne(query);
+
+  res.send(result).status(200);
+});
+
 export default router;
