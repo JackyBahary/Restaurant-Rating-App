@@ -37,13 +37,11 @@ router.patch("/:id", async (req, res) => {
   const query = { id: parseInt(req.params.id) };
   const updates = {
     $set: {
-      date: req.body.date,
-      email: req.body.email,
-      password: req.body.password,
-      fname: req.body.fname,
-      lname: req.body.lname,
-      birthDate: req.body.birthDate,
-      phone: req.body.phone,
+      fname: req.body.newfname,
+      lname: req.body.newlname,
+      password: req.body.newPwd,
+      birthDate: req.body.newbirthDate,
+      phone: req.body.newphone,
     },
   };
 

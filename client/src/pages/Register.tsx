@@ -8,20 +8,14 @@ const Register: FC = () => {
   const navigate = useNavigate();
 
   // UseContext Hook, to get authentication functions from App.tsx
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    fname,
-    setFName,
-    setLoggedIn,
-  } = useContext(AuthContext);
+  const { email, setEmail, password, setPassword, setLoggedIn } =
+    useContext(AuthContext);
 
   //useState Hooks
   let [userID, setUserID] = useState<number>(0);
   let [date, setDate] = useState<string>("");
   let [initialPassword, setInitialPassword] = useState<string>("");
+  let [fname, setFName] = useState<string>("");
   let [lname, setLName] = useState<string>("");
   let [birthDate, setBirthDate] = useState<string>("");
   let [phone, setPhone] = useState<string>("");
@@ -60,7 +54,6 @@ const Register: FC = () => {
             setDate("");
             setEmail(email);
             setPassword(password);
-            setFName(fname);
             setLoggedIn(true);
             navigate("/home");
           }

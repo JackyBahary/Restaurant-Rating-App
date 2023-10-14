@@ -6,6 +6,7 @@ import edit from "../assets/edit.png";
 import show from "../assets/show.png";
 import check from "../assets/check.png";
 import deleteIcon from "../assets/delete.png";
+import back from "../assets/back.png";
 
 const User: FC = () => {
   const navigate = useNavigate();
@@ -23,14 +24,22 @@ const User: FC = () => {
   const [hiddenPwd, setHiddenPwd] = useState<string>("*********");
   const [view, setView] = useState<boolean>(true);
 
+  // UseState hooks for new user information
+  const [newfname, setNewFName] = useState<string>("");
+  const [newlname, setNewLName] = useState<string>("");
+  const [newPwd, setNewPwd] = useState<string>("");
+  const [newbirthDate, setNewBirthDate] = useState<string>("");
+  const [newphone, setNewPhone] = useState<string>("");
+
   useEffect(() => {
-    findUser();
+    findUser(); // On page load, fetch user details
   }, []);
 
   // Find user function
   const findUser = async () => {
     try {
       const user: {
+        // destructuring has to be same with database fields
         id: number;
         date: string;
         fname: string;
@@ -65,17 +74,20 @@ const User: FC = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        date,
-        email,
-        password,
-        fname,
-        lname,
-        birthDate,
-        phone,
+        newfname,
+        newlname,
+        newPwd,
+        newbirthDate,
+        newphone,
       }),
     })
       .then((resp) => {
         resp.json();
+        setPassword(newPwd); // Set global password to be the new password
+        if (password == newPwd) {
+          // Make sure the global password is already set to the new password before fetching user
+          findUser(); // Re-fetch user details for view user page after updating
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -126,6 +138,11 @@ const User: FC = () => {
               onClick={() => {
                 setView(false);
                 setHiddenPwd("*********");
+                setNewFName(fname); // Update the edit fields with the current user info
+                setNewLName(lname);
+                setNewPwd(password);
+                setNewBirthDate(birthDate);
+                setNewPhone(phone);
               }}
             ></img>
           </div>
@@ -137,31 +154,37 @@ const User: FC = () => {
           <p>Date Created: {date}</p>
           <p>
             First Name: &nbsp;
-            <input value={fname} onChange={(e) => setFName(e.target.value)} />
+            <input
+              value={newfname}
+              onChange={(e) => setNewFName(e.target.value)}
+            />
           </p>
           <p>
             Last Name: &nbsp;
-            <input value={lname} onChange={(e) => setLName(e.target.value)} />
+            <input
+              value={newlname}
+              onChange={(e) => setNewLName(e.target.value)}
+            />
           </p>
           <p>Email: {email}</p>
           <p>
             Password: &nbsp;
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <input value={newPwd} onChange={(e) => setNewPwd(e.target.value)} />
           </p>
           <p>
             Birth Date: &nbsp;
             <input
               type="date"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
+              value={newbirthDate}
+              onChange={(e) => setNewBirthDate(e.target.value)}
             />
           </p>
           <p>
             Phone Number: &nbsp;
-            <input value={phone} onChange={(e) => setPhone(e.target.value)} />
+            <input
+              value={newphone}
+              onChange={(e) => setNewPhone(e.target.value)}
+            />
           </p>
           <div className="container__button">
             <img
@@ -173,6 +196,13 @@ const User: FC = () => {
               }}
             ></img>
             <img src={deleteIcon} title="Delete" onClick={handleDelete}></img>
+            <img
+              src={back}
+              title="Back"
+              onClick={() => {
+                setView(true);
+              }}
+            ></img>
           </div>
         </div>
       )}

@@ -5,10 +5,8 @@ type AuthContextType = {
     setEmail: any,
     password: string,
     setPassword: any,
-    fname: string,
-    setFName: any,
     loggedIn: boolean,
     setLoggedIn: any
 }
 
-export const AuthContext = createContext<AuthContextType>({email: "", setEmail: null, password: "", setPassword: null, fname: "", setFName: null, loggedIn: false, setLoggedIn: null});
+export const AuthContext = createContext<AuthContextType>({email: "", setEmail: null, password: "", setPassword: null, loggedIn: false, setLoggedIn: null});
