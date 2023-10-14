@@ -65,4 +65,14 @@ router.delete("/:id", async (req, res) => {
   res.send(result).status(200);
 });
 
+// Delete restaurants
+router.delete("/restaurants/:email", async (req, res) => {
+  const query = { email: req.params.email };
+
+  const collection = db.collection("restaurants");
+  let result = await collection.deleteMany(query);
+
+  res.send(result).status(200);
+});
+
 export default router;

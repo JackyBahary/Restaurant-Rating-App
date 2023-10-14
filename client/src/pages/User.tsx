@@ -2,11 +2,16 @@ import { FC, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { baseUrl } from "../config";
 import { useNavigate } from "react-router-dom";
+import edit from "../assets/edit.png";
+import show from "../assets/show.png";
+import check from "../assets/check.png";
+import deleteIcon from "../assets/delete.png";
 
 const User: FC = () => {
   const navigate = useNavigate();
   // UseContext Hook, to get authentication functions from App.tsx
-  const { email, password, setPassword } = useContext(AuthContext);
+  const { email, setEmail, password, setPassword, setLoggedIn } =
+    useContext(AuthContext);
 
   // UseState hooks to store user information
   const [userID, setUserID] = useState<number>(0);
@@ -80,6 +85,12 @@ const User: FC = () => {
     await fetch(`${baseUrl}/users/${userID}`, {
       method: "DELETE",
     });
+    await fetch(`${baseUrl}/restaurants/restaurants/${email}`, {
+      method: "DELETE",
+    });
+    setEmail("");
+    setPassword("");
+    setLoggedIn(false);
     return navigate("/");
   };
 
@@ -92,9 +103,11 @@ const User: FC = () => {
           <p>First Name: {fname}</p>
           <p>Last Name: {lname}</p>
           <p>Email: {email}</p>
-          <p>
-            Password: {hiddenPwd}
-            <button
+          <div className="container__button container__button--user">
+            Password: {hiddenPwd} &nbsp;
+            <img
+              src={show}
+              title="Show"
               onClick={() => {
                 if (hiddenPwd != "*********") {
                   setHiddenPwd("*********");
@@ -102,21 +115,19 @@ const User: FC = () => {
                   setHiddenPwd(password);
                 }
               }}
-            >
-              Show
-            </button>
-          </p>
+            ></img>
+          </div>
           <p>Birth Date: {birthDate}</p>
           <p>Phone Number: {phone}</p>
-          <div>
-            <button
+          <div className="container__button">
+            <img
+              src={edit}
+              title="Edit"
               onClick={() => {
                 setView(false);
                 setHiddenPwd("*********");
               }}
-            >
-              Edit
-            </button>
+            ></img>
           </div>
         </div>
       )}
@@ -152,16 +163,16 @@ const User: FC = () => {
             Phone Number: &nbsp;
             <input value={phone} onChange={(e) => setPhone(e.target.value)} />
           </p>
-          <div>
-            <button
+          <div className="container__button">
+            <img
+              src={check}
+              title="Confirm"
               onClick={() => {
                 handleUpdate();
                 setView(true);
               }}
-            >
-              Update
-            </button>
-            <button onClick={handleDelete}>Delete</button>
+            ></img>
+            <img src={deleteIcon} title="Delete" onClick={handleDelete}></img>
           </div>
         </div>
       )}

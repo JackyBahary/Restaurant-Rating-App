@@ -3,6 +3,8 @@ import { baseUrl } from "../config";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import StarCell from "../components/StarCell";
+import view from "../assets/view.png";
+import add from "../assets/add.png";
 
 const Home: FC = () => {
   //useState Hooks
@@ -70,12 +72,12 @@ const Home: FC = () => {
           </tbody>
         </table>
         <div className="container container__button">
-          <button>
-            <Link to={`/view/${restaurantID}`}>View</Link>
-          </button>
-          <button>
-            <Link to="/add">Add New Restaurant</Link>
-          </button>
+          <Link to={`/view/${restaurantID}`}>
+            <img src={view} title="View"></img>
+          </Link>
+          <Link to="/add">
+            <img src={add} title="Add"></img>
+          </Link>
         </div>
       </div>
     </>

@@ -1,11 +1,13 @@
 import { FC, useEffect, useState } from "react";
 import { baseUrl } from "../config";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import StarCell from "../components/StarCell";
+import edit from "../assets/edit.png";
+import deleteIcon from "../assets/delete.png";
+import back from "../assets/back.png";
 
 const View: FC = () => {
   let params = useParams();
-  let navigate = useNavigate();
 
   //useState Hooks
   let [restaurant, setRestaurant] = useState<{
@@ -34,12 +36,6 @@ const View: FC = () => {
     await fetch(`${baseUrl}/restaurants/${params.id}`, {
       method: "DELETE",
     });
-    return navigate("/home");
-  };
-
-  // Go back to home page
-  const handleBack = () => {
-    navigate("/home");
   };
 
   return (
@@ -63,15 +59,15 @@ const View: FC = () => {
           </tbody>
         </table>
         <div className="container container__button">
-          <button type="button">
-            <Link to={`/edit/${params.id}`}>Edit</Link>
-          </button>
-          <button type="button" onClick={handleDelete}>
-            Delete
-          </button>
-          <button type="button" onClick={handleBack}>
-            Back
-          </button>
+          <Link to={`/edit/${params.id}`}>
+            <img src={edit} title="Edit"></img>
+          </Link>
+          <Link to="/home">
+            <img src={deleteIcon} title="Delete" onClick={handleDelete}></img>
+          </Link>
+          <Link to="/home">
+            <img src={back} title="Back"></img>
+          </Link>
         </div>
       </div>
     </>

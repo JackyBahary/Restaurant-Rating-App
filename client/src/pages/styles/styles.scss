@@ -26,10 +26,29 @@
     &__button {
         height: fit-content;
         justify-content: left;
-        
-        button {
-            margin-right: 20px;
+                
+        img {
+            border-radius: 5px;
+            background-color: #489b537b;
+            padding: 5px;
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 20px;
+
+            &:hover {
+                background-color: #3E7846;
+            }
         }
+
+        &--user {
+            display: flex;
+            align-items: center;
+
+            img {
+                margin: 0;
+            }
+        }
+
     }
 }   
 
